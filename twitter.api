@@ -1,0 +1,46 @@
+note "Twitter API Sample"
+
+type 'Tweet' message(skipUnknownFields: true) {
+  text 'string'
+}
+
+type "SearchResult" message {
+  statuses 'Tweet' sequence
+  search_metadata(skip: true)
+}
+
+service {
+  name "Twitter API"
+
+  version 1.1
+  location "https://api.twitter.com/$version"
+
+  get "/search/tweets.json" spec {
+    name "Search tweets"
+    description "Returns a collection of relevant Tweets matching a specified query."
+    parameters {
+      q(type: 'string', examples: ['#androiddev'])
+      count 'int32' optional
+    }
+    response "SearchResult"
+  }
+
+  tests {
+    useExamples true
+    httpHeaders {
+      'Authorization' 'Bearer AAAAAAAAAAAAAAAAAAAAAJ3PVgAAAAAA%2BPcuieQDv6hOE9SyWM2AOWjIloc%3DU2fCluURs5dnG5A3WaaVhNgiBjXKkV5lynvoquGu7ediOCRWiF'
+    }
+
+    scenario "search tweets" spec {
+      def response = get "/search/tweets.json" with {
+        parameters {
+          q 'stanfy'
+          count 2
+        }
+      }
+      assert response.body.statuses.size() == 2 : "Expected 2 statuses only!"
+    }
+
+  }
+
+}
