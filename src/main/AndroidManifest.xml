@@ -1,19 +1,25 @@
 <manifest
-    package="com.example"
+    package="enroscar.async.example"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
   <uses-permission android:name="android.permission.INTERNET" />
 
-  <application android:name=".SampleApplication">
+  <application
+      android:name=".SampleApplication"
+      android:allowBackup="false" >
 
-    <activity android:name=".SampleActivity">
+    <activity
+        android:name=".SampleActivity"
+        android:label="@string/label_async">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
 
-    <activity android:name=".SampleRxActivity">
+    <activity
+        android:name=".SampleRxActivity"
+        android:label="@string/label_rx_async">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

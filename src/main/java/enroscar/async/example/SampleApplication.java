@@ -1,9 +1,8 @@
-package com.example;
+package enroscar.async.example;
 
 import android.app.Application;
 
-import com.example.api.TwitterAPI;
-
+import enroscar.async.example.api.TwitterAPI;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 

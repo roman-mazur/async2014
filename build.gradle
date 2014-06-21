@@ -1,37 +1,39 @@
 buildscript {
   repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
   }
   dependencies {
-    classpath 'com.stanfy.helium:gradle-plugin:0.4.0'
-    classpath 'com.android.tools.build:gradle:0.10.1'
+    classpath 'com.stanfy.helium:gradle-plugin:0.4.1-SNAPSHOT'
+    classpath 'com.android.tools.build:gradle:0.11.1'
   }
 }
 
 apply plugin: 'android'
 apply plugin: 'helium-android'
-apply from: 'https://gist.githubusercontent.com/roman-mazur/95c7f46b66c7f15fb97a/raw/e8a6c9e7ba42b079cebb0f880842b8e51f6d6d6d/apt.gradle'
+apply from: 'https://gist.githubusercontent.com/roman-mazur/95c7f46b66c7f15fb97a/raw/36051179b3cbefc7d3bbcffd49422a2f9f7e92fd/apt.gradle'
 
 repositories {
   mavenCentral()
+  maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 dependencies {
   compile 'com.google.code.gson:gson:2.2.4'
-  compile 'com.squareup.retrofit:retrofit:1.5.1'
+  compile 'com.squareup.retrofit:retrofit:1.6.0'
 
-  compile 'com.stanfy.enroscar:enroscar-content:2.0.alpha3'
-  provided 'com.stanfy.enroscar:enroscar-async-compiler:2.0.alpha3'
+  compile 'com.stanfy.enroscar:enroscar-async:1.0-SNAPSHOT'
+  provided 'com.stanfy.enroscar:enroscar-async-compiler:1.0-SNAPSHOT'
 
-  compile 'com.stanfy.enroscar:enroscar-goro:2.0.alpha3@aar'
+  compile 'com.stanfy.enroscar:enroscar-goro:2.0.0@aar'
 
-  compile 'com.netflix.rxjava:rxjava-core:0.18.3'
-  compile 'com.stanfy.enroscar:enroscar-async-rx:2.0.alpha3@aar'
+  compile 'com.netflix.rxjava:rxjava-core:0.19.1'
+  compile 'com.stanfy.enroscar:enroscar-async-rx:1.0-SNAPSHOT@aar'
 }
 
 android {
   compileSdkVersion 19
-  buildToolsVersion "19.0.3"
+  buildToolsVersion "19.1.0"
 
   defaultConfig {
     minSdkVersion 10
@@ -43,20 +45,21 @@ import javax.lang.model.element.Modifier
 import static com.stanfy.helium.handler.codegen.java.entity.Writers.*;
 
 helium {
-  specification file('twitter.api')
-  sourceGen {
-    entities {
-      options {
-        packageName = "com.example.api"
-        prettifyNames =  true
-        fieldModifiers = EnumSet.of(Modifier.PRIVATE)
-        addGetters = true
-        writerWrapper = gson()
+  specification(file('src/api/twitter.api')) {
+    sourceGen {
+      entities {
+        options {
+          packageName = "enroscar.async.example.api"
+          prettifyNames =  true
+          fieldModifiers = EnumSet.of(Modifier.PRIVATE)
+          addGetters = true
+          writerWrapper = gson()
+        }
       }
-    }
-    retrofit {
-      options {
-        packageName = "com.example.api"
+      retrofit {
+        options {
+          packageName = "enroscar.async.example.api"
+        }
       }
     }
   }

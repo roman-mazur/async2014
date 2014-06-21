@@ -1,6 +1,5 @@
-package com.example;
+package enroscar.async.example;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -8,18 +7,18 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.api.SearchResult;
-import com.example.api.Tweet;
-import com.example.api.TwitterAPI;
 import com.stanfy.enroscar.async.Action;
 import com.stanfy.enroscar.async.Async;
 import com.stanfy.enroscar.async.Load;
-import com.stanfy.enroscar.async.Tools;
 import com.stanfy.enroscar.goro.BoundGoro;
 import com.stanfy.enroscar.goro.Goro;
 import com.stanfy.enroscar.goro.support.AsyncGoro;
 
 import java.util.concurrent.Callable;
+
+import enroscar.async.example.api.SearchResult;
+import enroscar.async.example.api.Tweet;
+import enroscar.async.example.api.TwitterAPI;
 
 /**
  * @author Roman Mazur - Stanfy (http://stanfy.com)
