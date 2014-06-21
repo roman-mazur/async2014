@@ -1,6 +1,7 @@
 note "Twitter API Sample"
 
 type 'Tweet' message(skipUnknownFields: true) {
+  id long
   text 'string'
 }
 

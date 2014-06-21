@@ -9,7 +9,7 @@
       android:allowBackup="false" >
 
     <activity
-        android:name=".SampleActivity"
+        android:name=".AsyncActivity"
         android:label="@string/label_async">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,7 @@
     </activity>
 
     <activity
-        android:name=".SampleRxActivity"
+        android:name=".RxActivity"
         android:label="@string/label_rx_async">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

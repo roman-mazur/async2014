@@ -2,5 +2,6 @@
 
   <string name="label_async">Async demonstration</string>
   <string name="label_rx_async">Rx+Async demonstration</string>
+  <string name="action_refresh">Refresh</string>
 
 </resources>
