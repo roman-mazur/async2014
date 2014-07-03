@@ -11,7 +11,9 @@ import com.stanfy.enroscar.goro.support.AsyncGoro;
 import enroscar.async.example.api.SearchResult;
 
 /**
- * @author Roman Mazur - Stanfy (http://stanfy.com)
+ * This activity loads tweets.
+ * Tweets are loaded by an operation running in a Service.
+ * And activity uses a Loader to bind to a running operation after recreation.
  */
 public class AsyncActivity extends TweetsActivity {
 
@@ -46,7 +48,7 @@ public class AsyncActivity extends TweetsActivity {
   }
 
   @Load Async<SearchResult> tweets(final String q) {
-    return asyncGoro.schedule("adfsdf", new SearchTask(q, api));
+    return asyncGoro.schedule("queue name", new SearchTask(q, api));
   }
 
   @Override

@@ -2,7 +2,7 @@ note "Twitter API Sample"
 
 type 'Tweet' message(skipUnknownFields: true) {
   id long
-  text 'string'
+  text(type: 'string', description: 'User message that should be displayed')
 }
 
 type "SearchResult" message {

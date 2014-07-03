@@ -25,6 +25,11 @@ final class TweetsAdapter extends BaseAdapter {
     notifyDataSetChanged();
   }
 
+  public void clear() {
+    tweets = Collections.emptyList();
+    notifyDataSetChanged();
+  }
+
   @Override
   public int getCount() {
     return tweets.size();

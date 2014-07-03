@@ -54,6 +54,7 @@ abstract class TweetsActivity extends FragmentActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.action_refresh:
+        adapter.clear();
         onRefresh();
         return true;
       default:

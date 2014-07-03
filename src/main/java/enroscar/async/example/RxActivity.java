@@ -12,7 +12,9 @@ import rx.functions.Action0;
 import rx.functions.Action1;
 
 /**
- * @author Roman Mazur - Stanfy (http://stanfy.com)
+ * This activity loads tweets. It uses RxJava API to react on tweets being loaded.
+ * Tweets are loaded by an operation running in a Service.
+ * And activity uses a Loader to bind to a running operation after recreation.
  */
 public class RxActivity extends TweetsActivity {
 
@@ -53,7 +55,7 @@ public class RxActivity extends TweetsActivity {
   }
 
   @Load Observable<SearchResult> tweets(final String q) {
-    return rxGoro.schedule("adfsdf", new SearchTask(q, api));
+    return rxGoro.schedule("tweets queue", new SearchTask(q, api));
   }
 
   @Override
