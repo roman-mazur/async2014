@@ -3,8 +3,8 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'com.stanfy.helium:gradle-plugin:0.5.0'
-    classpath 'com.android.tools.build:gradle:0.12.1'
+    classpath 'com.stanfy.helium:gradle-plugin:0.5.3'
+    classpath 'com.android.tools.build:gradle:0.12.2'
   }
 }
 
@@ -23,15 +23,15 @@ dependencies {
   compile 'com.squareup.retrofit:retrofit:1.6.0'
 
   // we control fetching data from Twitter via a Loader
-  compile 'com.stanfy.enroscar:enroscar-async:1.0-SNAPSHOT'
-  provided 'com.stanfy.enroscar:enroscar-async-compiler:1.0-SNAPSHOT'
+  compile 'com.stanfy.enroscar:enroscar-async:1.0.0'
+  provided 'com.stanfy.enroscar:enroscar-async-compiler:1.0.0'
 
   // fetch operations are run within a Service context
   compile 'com.stanfy.enroscar:enroscar-goro:2.0.0@aar'
 
   // and do Loader interactions with RxJava
   compile 'com.netflix.rxjava:rxjava-core:0.19.1'
-  compile 'com.stanfy.enroscar:enroscar-async-rx:1.0-SNAPSHOT@aar'
+  compile 'com.stanfy.enroscar:enroscar-async-rx:1.0.0'
 }
 
 android {
@@ -41,6 +41,10 @@ android {
   defaultConfig {
     minSdkVersion 14
     targetSdkVersion 19
+  }
+
+  lintOptions {
+    ignore 'InvalidPackage' // avoid complains about annotation processor classes
   }
 }
 
