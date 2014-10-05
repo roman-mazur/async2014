@@ -18,7 +18,7 @@ class SearchTask implements Callable<SearchResult> {
   }
 
   @Override
-  public SearchResult call() throws Exception {
+  public SearchResult call() {
     return api.searchTweets(q, 10);
   }
 }

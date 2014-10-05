@@ -2,6 +2,7 @@ package enroscar.async.example;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.stanfy.enroscar.async.Action;
 import com.stanfy.enroscar.async.Async;
@@ -42,9 +43,16 @@ public class AsyncActivity extends TweetsActivity {
           public void act(Throwable error) {
             Log.e("123123", "Oops", error);
           }
-        });
+        })
 
-    operator.tweets(QUERY);
+    .alsoWhen().tweetsIsStartedDo(new Runnable() {
+      @Override
+      public void run() {
+        Toast.makeText(getApplicationContext(), "Started", Toast.LENGTH_SHORT).show();
+      }
+    });
+
+    //operator.tweets(QUERY);
   }
 
   @Load Async<SearchResult> tweets(final String q) {
