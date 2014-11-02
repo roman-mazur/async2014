@@ -52,7 +52,7 @@ public class AsyncActivity extends TweetsActivity {
       }
     });
 
-    //operator.tweets(QUERY);
+    operator.tweets(QUERY);
   }
 
   @Load Async<SearchResult> tweets(final String q) {
