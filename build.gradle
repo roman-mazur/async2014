@@ -37,12 +37,12 @@ dependencies {
 }
 
 android {
-  compileSdkVersion 19
-  buildToolsVersion "19.1.0"
+  compileSdkVersion 21
+  buildToolsVersion "20.0.0"
 
   defaultConfig {
     minSdkVersion 14
-    targetSdkVersion 19
+    targetSdkVersion 21
   }
 
   lintOptions {
@@ -72,8 +72,4 @@ helium {
       }
     }
   }
-}
-
-task gradleWrapper(type: Wrapper) {
-  gradleVersion = 1.12
 }
