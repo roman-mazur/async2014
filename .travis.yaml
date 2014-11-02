@@ -11,5 +11,8 @@ android:
 before_install:
   - export TERM=dumb
 
+install:
+  - gradlew assemble
+
 script:
   - gradlew build
