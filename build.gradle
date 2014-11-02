@@ -5,13 +5,13 @@ buildscript {
   dependencies {
     classpath 'com.stanfy.helium:gradle-plugin:0.5.3'
     classpath 'com.android.tools.build:gradle:0.13.2'
-    classpath 'com.stanfy.android:gradle-android-apt:1.0.0'
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
   }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'helium-android'
-apply plugin: 'com.stanfy.android.apt'
+apply plugin: 'android-apt'
 apply plugin: 'project-report'
 
 repositories {
@@ -29,7 +29,7 @@ dependencies {
 
   // we control fetching data from Twitter via a Loader
   compile 'com.stanfy.enroscar:enroscar-async:2.0-RC1@aar'
-  provided 'com.stanfy.enroscar:enroscar-async-compiler:2.0-RC1'
+  apt 'com.stanfy.enroscar:enroscar-async-compiler:2.0-RC1'
   // and do Loader interactions with RxJava
   compile 'com.stanfy.enroscar:enroscar-async-rx:2.0-RC1@aar'
 
