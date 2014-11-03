@@ -12,6 +12,7 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'helium-android'
 apply plugin: 'com.stanfy.android.apt'
+apply plugin: 'project-report'
 
 repositories {
   mavenCentral()
